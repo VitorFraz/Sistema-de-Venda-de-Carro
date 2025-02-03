@@ -80,5 +80,10 @@ namespace Sistema
                 textBox_usuario.Focus();
             }
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelMenssagem = new System.Windows.Forms.Label();
             this.buttonl_limpar = new System.Windows.Forms.Button();
             this.button_mostrarSenha = new System.Windows.Forms.Button();
             this.button_entrar = new System.Windows.Forms.Button();
@@ -38,7 +39,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.labelMenssagem = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -61,6 +61,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Acesso ao Sistema";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // labelMenssagem
+            // 
+            this.labelMenssagem.AutoSize = true;
+            this.labelMenssagem.Location = new System.Drawing.Point(164, 184);
+            this.labelMenssagem.Name = "labelMenssagem";
+            this.labelMenssagem.Size = new System.Drawing.Size(0, 13);
+            this.labelMenssagem.TabIndex = 7;
             // 
             // buttonl_limpar
             // 
@@ -140,14 +148,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(229, 232);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
-            // 
-            // labelMenssagem
-            // 
-            this.labelMenssagem.AutoSize = true;
-            this.labelMenssagem.Location = new System.Drawing.Point(164, 184);
-            this.labelMenssagem.Name = "labelMenssagem";
-            this.labelMenssagem.Size = new System.Drawing.Size(0, 13);
-            this.labelMenssagem.TabIndex = 7;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Form1
             // 

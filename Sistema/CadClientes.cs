@@ -8,6 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Sistema
 {
@@ -49,6 +50,50 @@ namespace Sistema
                 maskedTextBoxCPF.Text = "";
                 maskedTextBoxCPF.Focus();
             }
+
+            // Defina sua string de conexão com o bank
+            string conexaoString = "Server=localhost; Port=3306; Database=db_sistema; Uid=root; Pwd=;";
+
+            //Defina a insert de registro no DB
+
+            string query = "INSERT INTO tb_clientes (NomeCompleto, Cpf, Email, Cep, Numero, Telefone) VALUES (@NomeCompleto, @Cpf, @Email, @Cep, @Numero, @Telefone)";
+
+            //Crie uma conexão com o DB
+
+            using (MySqlConnection conexao = new MySqlConnection(conexaoString)) 
+            {
+                try
+                {
+                        //Abre a conexão
+                    conexao.Open();
+
+                    //Crie o comando SQL
+                    using (MySqlCommand comando = new MySqlCommand(query, conexao))
+                    {
+                        //Adicionar os parâmetros com os valores dos TextBox
+                        comando.Parameters.AddWithValue("@NomeCompleto", textBoxNome.Text);
+                        comando.Parameters.AddWithValue("@Cpf", maskedTextBoxCPF.Text);
+                        comando.Parameters.AddWithValue("@Email", textBoxEmail.Text);
+                        comando.Parameters.AddWithValue("@Cep", maskedTextBoxCEP.Text);
+                        comando.Parameters.AddWithValue("@Numero", maskedTextBoxNum.Text);
+                        comando.Parameters.AddWithValue("@Telefone", maskedTextBoxTel.Text);
+
+                        // Executa o comando inserção
+                        comando.ExecuteNonQuery();
+
+                        MessageBox.Show("Dados inseridos com sucesso!");
+                    } 
+                }
+                catch(Exception ex)
+                {
+                    //em caso de erro, exiba mensagem do erro
+                    MessageBox.Show("Erro: " + ex.Message);
+
+                }
+
+
+            }
+
         }
 
         private void buttonLimpar_Click(object sender, EventArgs e)

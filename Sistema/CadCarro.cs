@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -54,6 +55,52 @@ namespace Sistema
                 maskedTextBoxCPF.Text = "";
                 maskedTextBoxCPF.Focus();
             }
+            // Defina sua string de conexão com o bank
+            string conexaoString = "Server=localhost; Port=3306; Database=db_sistema; Uid=root; Pwd=;";
+
+            //Defina a insert de registro no DB
+
+            string query = "INSERT INTO tb_produtos (Proprietario, Telefone, Cpf, Placa, Modelo, Ano, Chassi, Cor, Marca, Acessorios, Valor) VALUES (@Proprietario, @Telefone, @Cpf, @Placa, @Modelo, @Ano, @Chassi, @Cor, @Marca, @Acessorios, @Valor)";
+
+            //Crie uma conexão com o DB
+
+            using (MySqlConnection conexao = new MySqlConnection(conexaoString))
+            {
+                try
+                {
+                    //Abre a conexão
+                    conexao.Open();
+
+                    //Crie o comando SQL
+                    using (MySqlCommand comando = new MySqlCommand(query, conexao))
+                    {
+                        comando.Parameters.AddWithValue("@Proprietario", textBoxProp.Text);
+                        comando.Parameters.AddWithValue("@Telefone", maskedTextBoxTel.Text);
+                        comando.Parameters.AddWithValue("@Cpf", maskedTextBoxCPF.Text);
+                        comando.Parameters.AddWithValue("@Placa", textBoxPlaca.Text);
+                        comando.Parameters.AddWithValue("@Modelo", textBoxModelo.Text);
+                        comando.Parameters.AddWithValue("@Ano", maskedTextBoxAno.Text);
+                        comando.Parameters.AddWithValue("@Chassi", textBoxChassi.Text);
+                        comando.Parameters.AddWithValue("@Cor", textBoxCor.Text);
+                        comando.Parameters.AddWithValue("@Marca", textBoxMarca.Text);
+                        comando.Parameters.AddWithValue("@Acessorios", richTextBoxAcess.Text);
+                        comando.Parameters.AddWithValue("@Valor", maskedTextBoxValor.Text);
+
+                        // Executa o comando inserção
+                        comando.ExecuteNonQuery();
+
+                        MessageBox.Show("Dados inseridos com sucesso!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //em caso de erro, exiba mensagem do erro
+                    MessageBox.Show("Erro: " + ex.Message);
+
+                }
+
+            }
+
         }
 
         private bool ValidarCPF(string cpf)

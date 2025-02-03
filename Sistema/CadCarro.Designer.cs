@@ -201,7 +201,7 @@
             // maskedTextBoxCPF
             // 
             this.maskedTextBoxCPF.Location = new System.Drawing.Point(123, 130);
-            this.maskedTextBoxCPF.Mask = "000.000.000-00";
+            this.maskedTextBoxCPF.Mask = "000,000,000-00";
             this.maskedTextBoxCPF.Name = "maskedTextBoxCPF";
             this.maskedTextBoxCPF.Size = new System.Drawing.Size(204, 20);
             this.maskedTextBoxCPF.TabIndex = 14;
