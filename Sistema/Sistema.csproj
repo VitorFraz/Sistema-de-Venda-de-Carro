@@ -116,6 +116,18 @@
     <Compile Include="CadClientes.Designer.cs">
       <DependentUpon>CadClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gereciamento_Clientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gereciamento_Clientes.Designer.cs">
+      <DependentUpon>Gereciamento_Clientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gerenciamento_Carros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gerenciamento_Carros.Designer.cs">
+      <DependentUpon>Gerenciamento_Carros.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +144,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gereciamento_Clientes.resx">
+      <DependentUpon>Gereciamento_Clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gerenciamento_Carros.resx">
+      <DependentUpon>Gerenciamento_Carros.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

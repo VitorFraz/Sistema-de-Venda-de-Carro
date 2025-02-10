@@ -38,5 +38,17 @@ namespace Sistema
         {
             this.Close();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Gereciamento_Clientes form = new Gereciamento_Clientes();
+            form.ShowDialog();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Gerenciamento_Carros form = new Gerenciamento_Carros();
+            form.ShowDialog();
+        }
     }
 }
